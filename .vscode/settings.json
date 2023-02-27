@@ -38,7 +38,11 @@
     "comments": true,
     "strings": true
   },
-  "tailwindCSS.classAttributes": ["class", "className", "ngClass"],
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass"
+  ],
+  "typescript.tsdk": "node_modules\\typescript\\lib",
   "typescript.enablePromptUseWorkspaceTsdk": true
 }
