@@ -8,8 +8,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    loader: 'akamai',
-    path: '/',
     domains: [
       'res.cloudinary.com',
       'lh3.googleusercontent.com',
