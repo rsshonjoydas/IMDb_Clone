@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import Navbar from '@/components/Navbar';
 import { Children } from '@/types';
 import '../../styles/index.scss';
 import Provider from './Provider';
@@ -9,6 +10,7 @@ export default function RootLayout({ children }: Children) {
       <body>
         <Provider>
           <Header />
+          <Navbar />
           {children}
         </Provider>
       </body>
