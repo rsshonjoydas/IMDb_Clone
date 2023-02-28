@@ -1,12 +1,29 @@
-const Home = () => (
-  <>
-    <h2>RS Shonjoy - Roboto</h2>
-    <h1 className='font-cursive'>RS Shonjoy - Cursive</h1>
-    <h2 className='font-poppins'>RS Shonjoy - Poppins</h2>
-    <h2 className='font-montserrat'>RS Shonjoy - Montserrat</h2>
-    <p className='text-primary-600'>RS Shonjoy</p>
-    <p className='text-primary-600'>RS Shonjoy</p>
-  </>
-);
+import Results from '@/components/Results';
+
+const { API_KEY } = process.env;
+
+const Home = async ({ searchParams }: any) => {
+  const genre = searchParams.genre || ' fetchTrending';
+
+  const res = await fetch(
+    `https://api.themoviedb.org/3/${
+      genre === 'fetchTopRated' ? 'movie/top_rated' : 'trending/all/week'
+    }?api_key=${API_KEY}&language=en-US&page=1`,
+    { next: { revalidate: 10000 } }
+  );
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+
+  const data = await res.json();
+  const { results } = data;
+
+  return (
+    <div>
+      <Results results={results} />
+    </div>
+  );
+};
 
 export default Home;
