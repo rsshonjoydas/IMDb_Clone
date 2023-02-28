@@ -1,13 +1,16 @@
 import Header from '@/components/Header';
 import { Children } from '@/types';
 import '../../styles/index.scss';
+import Provider from './Provider';
 
 export default function RootLayout({ children }: Children) {
   return (
     <html lang='en'>
       <body>
-        <Header />
-        {children}
+        <Provider>
+          <Header />
+          {children}
+        </Provider>
       </body>
     </html>
   );
